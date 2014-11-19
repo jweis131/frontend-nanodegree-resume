@@ -40,6 +40,7 @@ var bio = {
     "name": "James Weis",
     "role": "Web Ninga",
     "welcomeMessage": "Welcome",
+    "pictureURL": "images/fry.jpg",
     "contacts": {
         "mobile": "631-275-2618",
         "email": "jweis131@gmail.com",
@@ -85,6 +86,8 @@ var education = {
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
+$("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
-$("#header").append(formattedRole);
 
+var formattedBioWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#topContacts").append(formattedBioWelcome);
