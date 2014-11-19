@@ -40,13 +40,14 @@ var bio = {
     "name": "James Weis",
     "role": "Web Ninga",
     "welcomeMessage": "Welcome",
-    "pictureURL": "images/fry.jpg",
+    "pictureURL": "images/197x148.gif",
     "contacts": {
         "mobile": "631-275-2618",
         "email": "jweis131@gmail.com",
         "github": "https://github.com/jweis131",
         "twitter": "@James_Weis",
-        "location": "Huntington, NY"
+        "location": "Huntington, NY",
+        "blog":"www.RevampAgency.com"
     },
     "skills": [
         "HTML5",
@@ -83,11 +84,33 @@ var education = {
     ]
 };
 
+var formmattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").prepend(formmattedWelcome);
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-var formattedBioWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#topContacts").append(formattedBioWelcome);
+var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+$("#header").prepend(formattedPic);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#topContacts").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#topContacts").append(formattedEmail);
+
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+$("#topContacts").append(formattedTwitter);
+
+var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts").append(formattedGitHub);
+
+var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+$("#topContacts").append(formattedBlog);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts").append(formattedLocation);
+
