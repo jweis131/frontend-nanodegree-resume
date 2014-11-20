@@ -3,14 +3,14 @@ var work = {
 		{
 			"employer":"AFCO Systems",
 			"title":"Marketing Manager",
-			"location":"Farmingdale",
+			"location":"Farmingdale, New York",
 			"dates":"2012 - Present",
 			"description":"Managed all facets of marketing for the company"
 		},
 		{
 			"employer":"RevampAgency",
 			"title":"Owner",
-			"location":"Huntington",
+			"location":"Huntington, New York",
 			"dates":"2010 - Present",
 			"description":"Ran company"
 		}
@@ -46,8 +46,8 @@ var bio = {
         "email": "jweis131@gmail.com",
         "github": "https://github.com/jweis131",
         "twitter": "@James_Weis",
-        "location": "Huntington, NY",
-        "blog":"www.RevampAgency.com"
+        "location": "Huntington, New York",
+        "blog":"TBA"
     },
     "skills": [
         "HTML5",
@@ -61,14 +61,14 @@ var education = {
     "schools": [
         {
             "name": "commack high school",
-            "location": "Commack",
+            "location": "Commack, New York",
             "degree": "Diploma",
             "majors":"Business",
             "dates":"2001-2004"
         },
         {
             "name": "Five Towns College",
-            "location": "Dix Hills",
+            "location": "Dix Hills, New York",
             "degree": "Bachelors",
             "majors":"Business",
             "dates":"2007-2010"
@@ -142,16 +142,26 @@ function displayWork(){
 
 displayWork();
 
-function inName(name){
-    var splitName = name.trim().split(" ");
-    var lastName = splitName[1].toUpperCase();
-    var firstName = splitName[0].slice(0,1).toUpperCase() + splitName[0].slice(1).toLowerCase();
-    var newName = firstName + " " + lastName;
-    var formattedNewName = HTMLheaderName.replace("%data%", newName);
-    var internationalName = $("#header").prepend(formattedNewName);
-    return internationalName;
+projects.display = function(){
+    for(item in projects.projects){
+        $("#projects").append(HTMLprojectStart);
+        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
+        $(".project-entry:last").append(formattedProjectTitle);
+        var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[item].dates);
+        $(".project-entry:last").append(formattedProjectDates);
+        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[item].description);
+        $(".project-entry:last").append(formattedProjectDescription);
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[item].images);
+        $(".project-entry:last").append(formattedProjectImage);
+    }
 };
-$("#main").prepend(internationalizeButton);
+
+projects.display();
+
+$("#mapDiv").append(googleMap);
+
+
+
 
 
 
